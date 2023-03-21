@@ -1,0 +1,58 @@
+*::first-letter{
+    text-transform: uppercase;
+}
+h1, h2, h3, h4, h5, h6{
+    font-family: 'Gloock';
+}
+button{
+    padding-block: .5em;
+    padding-inline: 1em;
+}
+.palabra{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    max-width: 22rem;
+    gap: 1rem;
+    margin-inline: auto;
+}
+
+.letra{
+    border: 1px solid;
+    width: 4rem;
+    height: 4rem;
+    font-size: 3rem;
+    text-align: center;
+    text-transform: uppercase;
+    caret-color: transparent;
+}
+
+.letra:hover, .letra:focus-visible{
+    border-color: var(--sl-color-blue-500);
+}
+
+.contenedor__boton{
+    width: fit-content;
+    margin-inline: auto;
+    margin-block: 1rem;
+}
+/* .result{
+    text-align: center;
+    font-size: 3rem;
+} */
+.resultados{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+.result{
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(5ch, 1fr));
+    grid-auto-rows: max-content;
+}
+.opciones{
+    list-style: none;
+}
+.entrada{
+    font-size: 2rem;
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0/dist/themes/light.css" />
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0/dist/shoelace.js"></script> -->
+    <!-- fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gloock&display=swap" rel="stylesheet">
+    <title>Wordler</title>
+</head>
+
+<body>
+    <h1>Wordler</h1>
+
+    <div class="palabra">
+        <div>
+            <input class="letra" type="text" maxlength="1">
+            <!-- <input class="candado" type="checkbox"> -->
+        </div>
+        <div>
+            <input class="letra" type="text" maxlength="1">
+            <!-- <input class="candado" type="checkbox"> -->
+        </div>
+        <div>
+            <input class="letra" type="text" maxlength="1">
+            <!-- <input class="candado" type="checkbox"> -->
+        </div>
+        <div>
+            <input class="letra" type="text" maxlength="1">
+            <!-- <input class="candado" type="checkbox"> -->
+        </div>
+        <div>
+            <input class="letra" type="text" maxlength="1">
+            <!-- <input class="candado" type="checkbox"> -->
+        </div>
+    </div>
+
+    <div class="contenedor__boton">
+        <!-- <sl-button onclick="concatenar()">Concatenar</sl-button> -->
+        <button onclick="filtrar()">Filtrar</button>
+        <!-- <sl-button onclick="buscar()">Buscar</sl-button> -->
+    </div>
+
+    <h2>Resultados</h2>
+    <section class="resultados">
+
+        <ul class="result opciones">
+
+        </ul>
+
+        <article class="definicion lang_en">
+            <dt class="entrada"><b>Selected Word</b></dt>
+            <p class="pronunciacion">aetal</p>
+            <p class="etimologia">from lat. tal</p>
+            <dd class="definiciones">
+                <span class="categoria-gramatical"><i>Sustantive</i></span>
+                <span class="genero"><i>f</i></span>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt expedita ex temporibus odit, fugit
+                blanditiis tempore vel. Similique eveniet velit suscipit aspernatur molestiae perspiciatis doloribus
+                corporis vero odit?
+            </dd>
+        </article>
+
+        <article class="definicion lang_es">
+            <dt class="entrada"><b>Palabra seleccionada</b></dt>
+            <p class="pronunciacion">aetal</p>
+            <p class="etimologia">del lat. tal</p>
+            <dd class="definiciones">
+                <span class="categoria-gramatical"><i>Sustantivo</i></span>
+                <span class="genero"><i>f</i></span>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt expedita ex temporibus odit, fugit
+                blanditiis tempore vel. Similique eveniet velit suscipit aspernatur molestiae perspiciatis doloribus
+                corporis vero odit?
+            </dd>
+        </article>
+
+    </section>
+
+</body>
+<script src="js/filtrar.js"></script>
+<script src="js/carga.js"></script>
+
+</html>
