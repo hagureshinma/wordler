@@ -17,17 +17,18 @@ button{
 }
 
 .letra{
-    border: 1px solid;
+    border: 1px solid black;
     width: 4rem;
     height: 4rem;
     font-size: 3rem;
     text-align: center;
     text-transform: uppercase;
     caret-color: transparent;
+    color: white;
 }
 
 .letra:hover, .letra:focus-visible{
-    border-color: var(--sl-color-blue-500);
+    border-color: green;
 }
 
 .contenedor__boton{

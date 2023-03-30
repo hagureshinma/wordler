@@ -77,14 +77,3 @@ function mostrarResultado(){
         li.append(palabra);
     })
 }
-
-diccionario = {
-    "abide": "cacium lorem ipsum sit amet tiamat verdade respite cerisum tecti pitu",
-    "amigo": "lorem ipsum sit amet tiamat verdade respite cerisum tectidsgg  pitu dei",
-    "baker": "aresorlorem ipsum sit amet tiamat verdade respite cerisum tecti pitu mcase",
-    "biome": "varlovento lorem ipsum sit amet tiamat verdade lease tinger pelig maribunta",
-    "cabin": "purementi lorem ipsum sit amet tiamat verdade adios dire balisa pegui",
-    "choir": "casius lorem ipsum sit amet tiamat verdade lease tinger pelig legate",
-    "deter": "eleise lorem ipsum sit amet tiamat verdade lease tinger pelig siux suix",
-    "drive": "drive lorem ipsum sit amet tiamat verdade lease tinger pelig alemin",
-}

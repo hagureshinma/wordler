@@ -8,7 +8,6 @@ window.onload = function()
 
     // letras.forEach((campo)=>{campo.addEventListener('blur', (event)=>{event.target.style.background = "blue"})});
 
-    console.log("carga de pagina");
     candados.forEach((candado, index) => {
         candado.addEventListener('change', () =>{
             if(candado.checked){
@@ -17,5 +16,15 @@ window.onload = function()
                 inputs[index].style.background = "white";
             }
         });
+    })
+
+    inputs.forEach((input) =>{
+        input.addEventListener('keyup', () => {
+            if(input.value === ""){
+                input.style.background = "white";
+            }else{
+                input.style.background = "green";
+            }
+        })
     })
 }
