@@ -1,0 +1,35 @@
+:root{
+    --w-white: #f1f6f9;
+    --w-black: #191102;
+    --w-green: #25A741;
+    --w-green-shade: #25A741;
+    --w-blue: #3870A8;
+    --w-yellow: #FFCA3A;
+}
+
+body{
+    color: var(--w-black);
+}
+
+header{
+    background-color: var(--w-green);
+    color: var(--w-white);
+}
+
+/* header h1{
+    color: var(--w-white);
+} */
+
+.letra{
+    border: 1px solid var(--w-black);
+    color: var(--w-white);
+}
+
+.letra:hover{
+    border-color: var(--w-green-shade);
+}
+
+.letra:focus-visible{
+    border-color: hsl(120, 90%, 37%);
+    outline: 2px solid var(--w-green);
+}

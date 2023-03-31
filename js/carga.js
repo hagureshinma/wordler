@@ -8,22 +8,22 @@ window.onload = function()
 
     // letras.forEach((campo)=>{campo.addEventListener('blur', (event)=>{event.target.style.background = "blue"})});
 
-    candados.forEach((candado, index) => {
-        candado.addEventListener('change', () =>{
-            if(candado.checked){
-                inputs[index].style.background = "green";
-            }else{
-                inputs[index].style.background = "white";
-            }
-        });
-    })
+    // candados.forEach((candado, index) => {
+    //     candado.addEventListener('change', () =>{
+    //         if(candado.checked){
+    //             inputs[index].style.background = "green";
+    //         }else{
+    //             inputs[index].style.background = "white";
+    //         }
+    //     });
+    // })
 
     inputs.forEach((input) =>{
         input.addEventListener('keyup', () => {
             if(input.value === ""){
                 input.style.background = "white";
             }else{
-                input.style.background = "green";
+                input.style.background = "var(--w-green)";
             }
         })
     })

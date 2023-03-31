@@ -1,13 +1,36 @@
+@import 'css/themes/theme.css';
+
+body{
+    padding: 0;
+    margin: 0;
+}
+
+*{
+    box-sizing: border-box;
+}
 *::first-letter{
     text-transform: uppercase;
 }
+
 h1, h2, h3, h4, h5, h6{
     font-family: 'Gloock';
 }
+
 button{
     padding-block: .5em;
     padding-inline: 1em;
 }
+
+header{
+    padding-inline-start: 1rem;
+    padding-block: 0.1rem;
+    margin-block-end: 1rem;
+}
+
+main{
+    margin-inline: 2rem;
+}
+
 .palabra{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -17,18 +40,12 @@ button{
 }
 
 .letra{
-    border: 1px solid black;
     width: 4rem;
     height: 4rem;
     font-size: 3rem;
     text-align: center;
     text-transform: uppercase;
     caret-color: transparent;
-    color: white;
-}
-
-.letra:hover, .letra:focus-visible{
-    border-color: green;
 }
 
 .contenedor__boton{
@@ -36,10 +53,7 @@ button{
     margin-inline: auto;
     margin-block: 1rem;
 }
-/* .result{
-    text-align: center;
-    font-size: 3rem;
-} */
+
 .resultados{
     display: grid;
     gap: 1rem;
