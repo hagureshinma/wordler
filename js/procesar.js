@@ -1,5 +1,7 @@
 const letras = document.querySelectorAll(".letra");
 const result = document.querySelector(".result");
+const definiciones = document.querySelector(".definiciones");
+const entrada = document.querySelector(".entrada");
 const wordlerDB = [];
 fetch("https://sheet.best/api/sheets/3760199c-7456-4774-bfae-643cb202c76d")
     .then((response) => response.json())
@@ -92,10 +94,12 @@ function mostrarResultado(){
 
     let arreglo_no_duplicados = [...new Set(lista_filtrada)]
     arreglo_no_duplicados.forEach((palabra) =>{
-        let li = document.createElement("li")
+        let li = document.createElement("li");
         result.appendChild(li);
         li.append(palabra);
-    })
+    });
+
+    agregarClick();
 
 }
 function mostrarResultadoFiltro(){
@@ -106,5 +110,62 @@ function mostrarResultadoFiltro(){
         let li = document.createElement("li");
         result.appendChild(li);
         li.append(palabra);
+    });
+
+    agregarClick();
+}
+
+//agrego evento click y definiciones a la lista de palabras que se creen.
+function agregarClick(){
+    palabras = document.querySelectorAll("li");
+
+    palabras.forEach((palabra) => {
+        palabra.addEventListener('click', event => {
+            event.preventDefault();
+
+            obtenerDefinicion(palabra.textContent).then(definicion => {
+                entrada.textContent = palabra.textContent;
+                definiciones.textContent = definicion;
+            }).catch(error => {
+                console.log(error);
+                alert("No se encontró definición para la palabara " + palabra);
+            })
+        })
+    })
+}
+
+function obtenerDefinicion(palabra){
+    const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${palabra}`;
+
+    return fetch(url).then(response =>{
+        if(!response.ok){
+            throw new Error('Fallo al obtener la definición.');
+        }
+
+        return response.json();
+
+    }).then(data => {
+        if(data === 0){
+            throw new error('No se encontró ninguna definición.')
+        }
+
+        /* metodo 1 trae la primera definición del diccionario 
+        const definicion = data[0].meanings[0].definitions[0].definition;
+
+         return definicion;
+
+         */
+
+         /* metodo 2 trae todas las definiciones de una palabra en una cadena de texto */
+        const definicion = data.flatMap( entry => {
+            return entry.meanings.flatMap(meaning => {
+                return meaning.definitions.map(definition => {
+                    return definition.definition;
+                })
+            })
+        })
+
+        return definicion.join('\n');
+
     });
 }
