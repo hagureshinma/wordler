@@ -33,3 +33,8 @@ header{
     border-color: hsl(120, 90%, 37%);
     outline: 2px solid var(--w-green);
 }
+
+.opciones li:hover{
+    background-color: var(--w-blue);
+    font-weight: 700;
+}
