@@ -1,5 +1,15 @@
 @import 'css/themes/theme.css';
 
+@counter-style listas-guion{
+    system: extends decimal;
+    prefix: "-";
+    sufix: "_";
+}
+
+ol{
+    list-style-type: listas-guion;
+}
+
 body{
     padding: 0;
     margin: 0;

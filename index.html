@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+    <link rel="manifest" href="images/site.webmanifest">
     <link rel="stylesheet" href="style.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0/dist/themes/light.css" />
     <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.0.0/dist/shoelace.js"></script> -->
@@ -45,9 +49,9 @@
 
     <div class="contenedor__boton">
         <!-- <sl-button onclick="concatenar()">Concatenar</sl-button> -->
-        <button onclick="filtrar()">Filtrar</button>
+        <!-- <button onclick="filtrar()">Filtrar</button> -->
         <!-- <button onclick="verificarListas()">Verificar</button> -->
-        <!-- <sl-button onclick="buscar()">Buscar</sl-button> -->
+        <button onclick="filtrar()" class="boton-buscar">Buscar</button>
     </div>
     <main>
 
@@ -62,10 +66,8 @@
 
                 <dt class="entrada"><b class="palabra-definida"></b></dt>
                 <p class="pronunciacion" id="pronunciacion"></p>
-                <dd id="definicion">
-                    <pre class="definiciones">
+                <dd class="definiciones">
 
-                    </pre>
                 </dd>
 
             </article>
@@ -86,8 +88,8 @@
         </section>
     </main>
 </body>
-<script src="js/procesar.js"></script>
-<!-- <script src="js/wordler.js"></script> -->
+<!-- <script src="js/procesar.js"></script> -->
+<script src="js/wordler.js"></script>
 <script src="js/carga.js"></script>
 
 </html>
