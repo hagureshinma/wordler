@@ -73,7 +73,7 @@ main{
 .result{
     display: grid;
     gap: 1rem;
-    grid-template-columns: repeat(auto-fit, minmax(6ch, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(7ch, 1fr));
     grid-auto-rows: max-content;
     padding-inline-start: 0;
 }

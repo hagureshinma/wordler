@@ -33,10 +33,12 @@ let una_letra = "";
 
 function filtrar(){
     lista_filtrada = [];
-    arreglos_usados = [];
+    // arreglos_usados = [];
     palabras_repetidas = [];
     una_letra = "";
     un_index = 0;
+    limpiarResultados();
+    limpiarDefiniciones();
     
     letras.forEach((letra, index) =>{
         if(letra.value.length > 0){
@@ -53,12 +55,13 @@ function filtrar(){
     else if(arreglos_usados.length === 1){
         filtrarUnaLista(true);
     }
+    arreglos_usados = [];
 }
 
 let filtrarUnaLista = () => {
-    palabras.forEach((palabra) => {
-        if(palabra.charAt(un_index) === una_letra){
-            lista_filtrada.push(palabra);
+    palabras.forEach((palabra_filtrar) => {
+        if(palabra_filtrar.charAt(un_index) === una_letra){
+            lista_filtrada.push(palabra_filtrar);
         }
     });
 
@@ -67,27 +70,26 @@ let filtrarUnaLista = () => {
 
 function verificarListas (){
     let numero_palabras ={};
-
     arreglos_usados.forEach((letra) =>{
-        palabras.forEach((palabra) =>{
-            if(palabra.charAt(letra[1]) === letra[0]){
-                lista_filtrada.push(palabra);
+        palabras.forEach((palabra_filtrar) =>{
+            if(palabra_filtrar.charAt(letra[1]) === letra[0]){
+                lista_filtrada.push(palabra_filtrar);
             }
         })
     });
 
 
     for (let i = 0; i < lista_filtrada.length; i++){
-        let palabra = lista_filtrada[i];
-        if(numero_palabras[palabra]){
-            numero_palabras[palabra]++;
+        let agregar_palabra = lista_filtrada[i];
+        if(numero_palabras[agregar_palabra]){
+            numero_palabras[agregar_palabra]++;
 
-            if(numero_palabras[palabra] === (arreglos_usados.length)){
-                palabras_repetidas.push(palabra);
+            if(numero_palabras[agregar_palabra] === (arreglos_usados.length)){
+                palabras_repetidas.push(agregar_palabra);
             }
         }else
         {
-            numero_palabras[palabra] = 1;
+            numero_palabras[agregar_palabra] = 1;
         }
     }
 
@@ -135,17 +137,15 @@ function mostrarResultadoFiltro(){
 
 //agrego evento click y definiciones a la lista de palabras que se creen.
 function agregarClick(){
-    palabras = document.querySelectorAll("li");
+    Lista_palabras = document.querySelectorAll("li");
 
-    palabras.forEach((palabra) => {
+    Lista_palabras.forEach((palabra) => {
         palabra.addEventListener('click', event => {
             event.preventDefault();
 
             obtenerDefinicion(palabra.textContent).then(definicion => {
                 entrada.textContent = palabra.textContent;
-                // definiciones.textContent = definicion;
             }).catch(error => {
-                // alert("No se encontró definición para la palabara " + palabra.textContent);
                 entrada.textContent = palabra.textContent;
                 definiciones.textContent = "We didn't find a definition for this word";
             }); 
@@ -170,25 +170,6 @@ function obtenerDefinicion(palabra){
             throw new error('No se encontró ninguna definición.');
         }
 
-        /* metodo 1 trae la primera definición del diccionario 
-        const definicion = data[0].meanings[0].definitions[0].definition;
-
-         return definicion;
-
-         */
-
-        /*metodo 2 trae todas las definiciones de una palabra en una cadena de texto
-        const definicion = data.flatMap( entry => {
-            return entry.meanings.flatMap(meaning => {
-                return meaning.definitions.map(definition => {
-                    return definition.definition;
-                })
-            })
-        });
-
-        return definicion.join('\n'); 
-        */
-        /*metodo 3 definicion presentable*/
         const dDefiniciones = data.flatMap(entry =>{
             return entry.meanings.flatMap(meaning => {
                 return meaning.definitions.map(definition => {
@@ -197,7 +178,6 @@ function obtenerDefinicion(palabra){
             })
         });
 
-        // const definicionesHTML = definiciones.map(definition => `${definition}`);
         const definicionesHTML = dDefiniciones.forEach((definicion) =>{
             const p = document.createElement('p');
             p.textContent = definicion;
