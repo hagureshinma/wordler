@@ -26,6 +26,14 @@ h1, h2, h3, h4, h5, h6{
     font-family: 'Gloock';
 }
 
+p{
+    max-inline-size: 65ch;
+}
+
+p::first-letter{
+    text-transform: uppercase;
+}
+
 button{
     padding-block: .5em;
     padding-inline: 1em;
@@ -40,6 +48,7 @@ header{
 main{
     margin-inline: 2rem;
     padding-block-end: 1rem;
+    min-height: 60vh;
 }
 
 .palabra{
@@ -98,4 +107,8 @@ main{
 
 .entrada{
     font-size: 2rem;
+}
+
+#info{
+    padding: 2rem;
 }

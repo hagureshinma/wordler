@@ -2,7 +2,7 @@ const letras = document.querySelectorAll(".letra");
 const result = document.querySelector(".result");
 const definiciones = document.querySelector(".definiciones");
 const entrada = document.querySelector(".entrada");
-
+const pronunciacion = document.getElementById("pronunciacion");
 //obtener un listado de todas las palabras de 5 letras
 
 let palabras = [];
@@ -170,6 +170,9 @@ function obtenerDefinicion(palabra){
             throw new error('No se encontró ninguna definición.');
         }
 
+        const phonetics = data[0].phonetics[0].text;
+        pronunciacion.textContent = phonetics;
+
         const dDefiniciones = data.flatMap(entry =>{
             return entry.meanings.flatMap(meaning => {
                 return meaning.definitions.map(definition => {
@@ -182,7 +185,8 @@ function obtenerDefinicion(palabra){
             const p = document.createElement('p');
             p.textContent = definicion;
             definiciones.appendChild(p);
-        })
+        });
+
         return definicionesHTML;
 
     });

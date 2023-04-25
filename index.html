@@ -51,11 +51,11 @@
         <!-- <sl-button onclick="concatenar()">Concatenar</sl-button> -->
         <!-- <button onclick="filtrar()">Filtrar</button> -->
         <!-- <button onclick="verificarListas()">Verificar</button> -->
-        <button onclick="filtrar()" class="boton-buscar">Buscar</button>
+        <button onclick="filtrar()" class="boton-buscar">Help me!</button>
     </div>
     <main>
 
-        <h2>Resultados</h2>
+        <!-- <h2>Resultados</h2> -->
         <section class="resultados">
 
             <ul class="result opciones">
@@ -87,6 +87,50 @@
 
         </section>
     </main>
+
+    <section id="info" aria-labelledby="info-titulo">
+        <article>
+            <h2 id="info-titulo">What is Wordler?</h2>
+            <p>
+                Wordler is a site to help people sutck finding a suitable word in Wordle.
+            </p>
+        </article>
+
+        <article>
+            <h2>When to use Wordler?</h2>
+            <p>
+                You should use this site only when you have tried at least three words and can't think of another one
+                that fits the guessing criteria.
+            </p>
+        </article>
+        <article>
+            <h2>How to use Wordler?</h2>
+            <p>
+                Wordler it's simple to use, just write the letters you got right in Wordle in the same position here and
+                press the button. A list of possible solutions should appear down, and you can click on each one to
+                learn its meaning.
+            </p>
+        </article>
+        <article>
+            <h2>Why did you made this site?</h2>
+            <p>
+                I'm a Wordle enjoyer and did this proyect to learn JavaScript.
+            </p>
+        </article>
+        <article>
+            <h2>Thanks!</h2>
+            <p>
+                This site uses the <a href="https://github.com/dwyl/english-words">dwyl /
+                    english-words </a> repo to get the list of words. And the <a
+                    href="https://github.com/meetDeveloper/freeDictionaryAPI">dictionaryapi.dev/</a> API to get word
+                definitions.
+            </p>
+
+            <p>
+                I want to thank my friend <a href="https://github.com/joliveroizquierdo">Jorge</a> for his advice!
+            </p>
+        </article>
+    </section>
 </body>
 <!-- <script src="js/procesar.js"></script> -->
 <script src="js/wordler.js"></script>

@@ -16,6 +16,12 @@ header{
     color: var(--w-white);
 }
 
+a{
+    text-decoration: none;
+    font-style: italic;
+    color: var(--w-blue);
+}
+
 /* header h1{
     color: var(--w-white);
 } */
@@ -37,4 +43,13 @@ header{
 .opciones li:hover{
     background-color: var(--w-blue);
     font-weight: 700;
+}
+
+#info{
+    background-color: var(--w-green);
+    color: var(--w-white);
+}
+
+#info a{
+    color: var(--w-yellow);
 }
