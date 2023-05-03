@@ -103,6 +103,7 @@ let limpiarResultados = () => {
 }
 
 let limpiarDefiniciones = () => {
+    pronunciacion.textContent = "";
     while(definiciones.firstChild){
         definiciones.removeChild(definiciones.firstChild);
     }
@@ -153,41 +154,43 @@ function agregarClick(){
     })
 }
 
-function obtenerDefinicion(palabra){
+async function obtenerDefinicion(palabra){
 
     limpiarDefiniciones();
     const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${palabra}`;
 
-    return fetch(url).then(response =>{
-        if(!response.ok){
-            throw new Error('Fallo al obtener la definición.');
-        }
+    const response = await fetch(url);
+    if (!response.ok) {
+        throw new Error('Fallo al obtener la definición.');
+    }
+    const data = await response.json();
+    if (data.length === 0) {
+        throw new error('No se encontró ninguna definición.');
+    }
 
-        return response.json();
+    const phonetics = data[0].phonetics[0].text;
+    pronunciacion.textContent = phonetics;
 
-    }).then(data => {
-        if(data.length === 0){
-            throw new error('No se encontró ninguna definición.');
-        }
+    if(data[0].phonetics[0].audio){
+        const palabra_audio = document.createElement('audio');
+        const salto = document.createElement('br');
+        palabra_audio.setAttribute('src', data[0].phonetics[0].audio);
+        palabra_audio.setAttribute('controls', '');
+        pronunciacion.appendChild(salto);
+        pronunciacion.appendChild(palabra_audio);
+    }
 
-        const phonetics = data[0].phonetics[0].text;
-        pronunciacion.textContent = phonetics;
-
-        const dDefiniciones = data.flatMap(entry =>{
-            return entry.meanings.flatMap(meaning => {
-                return meaning.definitions.map(definition => {
-                    return definition.definition;
-                })
-            })
+    const dDefiniciones = data.flatMap(entry => {
+        return entry.meanings.flatMap(meaning => {
+            return meaning.definitions.map(definition => {
+                return definition.definition;
+            });
         });
-
-        const definicionesHTML = dDefiniciones.forEach((definicion) =>{
-            const p = document.createElement('p');
-            p.textContent = definicion;
-            definiciones.appendChild(p);
-        });
-
-        return definicionesHTML;
-
     });
+    const definicionesHTML = dDefiniciones.forEach((definicion) => {
+        const p = document.createElement('p');
+        p.textContent = definicion;
+        definiciones.appendChild(p);
+    });
+    return definicionesHTML;
 }
