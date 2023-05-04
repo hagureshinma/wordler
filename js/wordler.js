@@ -3,6 +3,7 @@ const result = document.querySelector(".result");
 const definiciones = document.querySelector(".definiciones");
 const entrada = document.querySelector(".entrada");
 const pronunciacion = document.getElementById("pronunciacion");
+const origen = document.getElementById("origen");
 //obtener un listado de todas las palabras de 5 letras
 
 let palabras = [];
@@ -179,6 +180,10 @@ async function obtenerDefinicion(palabra){
         pronunciacion.appendChild(salto);
         pronunciacion.appendChild(palabra_audio);
     }
+
+    // const origen = data[0].origin; //parece que el origen no existe en ninguna de las palabras realmente.
+    // console.log(data);
+    // console.log(origen);
 
     const dDefiniciones = data.flatMap(entry => {
         return entry.meanings.flatMap(meaning => {
