@@ -181,21 +181,44 @@ async function obtenerDefinicion(palabra){
         pronunciacion.appendChild(palabra_audio);
     }
 
-    // const origen = data[0].origin; //parece que el origen no existe en ninguna de las palabras realmente.
-    // console.log(data);
-    // console.log(origen);
+    const wordData = data[0];
+    const definitionsByPartOfSpeech = {};
 
-    const dDefiniciones = data.flatMap(entry => {
-        return entry.meanings.flatMap(meaning => {
-            return meaning.definitions.map(definition => {
-                return definition.definition;
-            });
-        });
+    wordData.meanings.forEach(meaning => {
+      const partOfSpeech = meaning.partOfSpeech;
+      const definitions = meaning.definitions.map(def => def.definition);
+      const synonyms = meaning.definitions.flatMap(def => def.synonyms || []);
+      const antonyms = meaning.definitions.flatMap(def => def.antonyms || []);
+
+      if (!definitionsByPartOfSpeech[partOfSpeech]) {
+        definitionsByPartOfSpeech[partOfSpeech] = {
+          partOfSpeech,
+          definitions,
+          synonyms,
+          antonyms
+        };
+      } else {
+        definitionsByPartOfSpeech[partOfSpeech].definitions.push(...definitions);
+        definitionsByPartOfSpeech[partOfSpeech].synonyms.push(...synonyms);
+        definitionsByPartOfSpeech[partOfSpeech].antonyms.push(...antonyms);
+      }
     });
-    const definicionesHTML = dDefiniciones.forEach((definicion) => {
-        const p = document.createElement('p');
-        p.textContent = definicion;
-        definiciones.appendChild(p);
+
+    const results = data[0].meanings;
+
+    // Create an array to store the HTML strings
+    const htmlStrings = [];
+
+    // Loop through each result and create HTML for it
+    results.forEach(result => {
+      const partOfSpeech = result.partOfSpeech;
+      const definitions = result.definitions.map(def => def.definition).join('<br>');
+      const synonyms = result.synonyms;
+      const html = `<div><i>${partOfSpeech}</i><p>${definitions}</p><p>synonyms: ${synonyms}</p></div>`;
+      htmlStrings.push(html);
     });
-    return definicionesHTML;
+
+    // Join the HTML strings together and insert them into a container element
+    const container = document.getElementById('container');
+    definiciones.innerHTML = htmlStrings.join('');
 }
