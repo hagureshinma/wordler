@@ -51,6 +51,10 @@ main{
     min-height: 60vh;
 }
 
+audio{
+    margin-block: 0.2rem;
+}
+
 .palabra{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -85,6 +89,7 @@ main{
     grid-template-columns: repeat(auto-fit, minmax(7ch, 1fr));
     grid-auto-rows: max-content;
     padding-inline-start: 0;
+    justify-items: center;
 }
 .opciones{
     list-style: none;
@@ -109,6 +114,17 @@ main{
     font-size: 2rem;
 }
 
+/* .definiciones p{
+    line-height: 1.5;
+} */
+
 #info{
     padding: 2rem;
+}
+
+.how{
+    font-size: 1.5rem;
+    max-inline-size: 30ch;
+    margin-block-start: 20vh;
+    pointer-events: none;
 }

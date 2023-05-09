@@ -213,8 +213,16 @@ async function obtenerDefinicion(palabra){
     results.forEach(result => {
       const partOfSpeech = result.partOfSpeech;
       const definitions = result.definitions.map(def => def.definition).join('<br>');
-      const synonyms = result.synonyms;
-      const html = `<div><i>${partOfSpeech}</i><p>${definitions}</p><p>synonyms: ${synonyms}</p></div>`;
+      let synonyms = "";
+      let antonyms = "";
+      if(result.synonyms.length !== 0){synonyms = `Synonyms: ${result.synonyms.join(", ")}`;}
+      if(result.antonyms.length !== 0){antonyms = `Antonyms: ${result.antonyms.join(", ")}`;}
+      const html = `<div>
+        <i>${partOfSpeech}</i>
+        <p>${definitions}</p>
+        <p>${synonyms}</p>
+        <p>${antonyms}</p>
+      </div>`;
       htmlStrings.push(html);
     });
 
