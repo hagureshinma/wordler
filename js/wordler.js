@@ -4,9 +4,14 @@ const definiciones = document.querySelector(".definiciones");
 const entrada = document.querySelector(".entrada");
 const pronunciacion = document.getElementById("pronunciacion");
 const origen = document.getElementById("origen");
+const boton = document.querySelector(".boton-buscar");
 //obtener un listado de todas las palabras de 5 letras
 
 let palabras = [];
+
+boton.addEventListener('touchend', () =>{
+    filtrar();
+})
 
 // Load the word list file
 fetch('https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt')
