@@ -144,6 +144,8 @@ function agregarClick(){
     Lista_palabras.forEach((palabra) => {
         palabra.addEventListener('click', event => {
             event.preventDefault();
+            palabra.setAttribute('tabindex', 0);
+            palabra.focus();
 
             obtenerDefinicion(palabra.textContent).then(definicion => {
                 entrada.textContent = palabra.textContent;
@@ -151,8 +153,20 @@ function agregarClick(){
                 entrada.textContent = palabra.textContent;
                 definiciones.textContent = "We didn't find a definition for this word";
             }); 
-        })
+        });
+        palabra.addEventListener('touchstart', handleTouchStart);
+        palabra.addEventListener('touchend', handleTouchEnd);
     })
+}
+
+function handleTouchStart(event){
+    event.preventDefault();
+    this.classList.add('activo');
+}
+
+function handleTouchEnd(){
+    this.classList.remove('activo');
+    this.focus(); 
 }
 
 async function obtenerDefinicion(palabra){

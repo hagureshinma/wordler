@@ -40,7 +40,16 @@ a{
     outline: 2px solid var(--w-green);
 }
 
-.opciones li:hover{
+.opciones li{
+    border-bottom: 1px solid transparent;
+}
+.opciones li:hover, .activo{
+    /* background-color: var(--w-blue); */
+    font-weight: 700;
+    border-bottom: 1px solid var(--w-yellow);
+}
+
+li:focus, li:focus-visible{
     background-color: var(--w-blue);
     font-weight: 700;
 }

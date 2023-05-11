@@ -59,8 +59,12 @@ audio{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     max-width: 22rem;
-    gap: 1rem;
     margin-inline: auto;
+    justify-content: space-around;
+}
+
+.palabra div{
+    width: fit-content;
 }
 
 .letra{
@@ -69,8 +73,17 @@ audio{
     font-size: 3rem;
     text-align: center;
     text-transform: uppercase;
+    font-weight: 900;
     caret-color: transparent;
 }
+
+/* @media(max-width: 600px){
+    .letra{
+        width: 3rem;
+        height: 3rem;
+        font-size: 2rem;
+    }
+} */
 
 .contenedor__boton{
     width: fit-content;
