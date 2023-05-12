@@ -9,10 +9,10 @@ const boton = document.querySelector(".boton-buscar");
 
 let palabras = [];
 
-boton.addEventListener('touchstart', botonClickeado);
-function botonClickeado(event){
-    filtrar();
-}
+boton.addEventListener('touchstart', filtrar);
+// function botonClickeado(event){
+//     filtrar();
+// }
 
 // Load the word list file
 fetch('https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt')
