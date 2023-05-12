@@ -11,7 +11,6 @@ let palabras = [];
 
 boton.addEventListener('touchstart', botonClickeado);
 function botonClickeado(event){
-    event.preventDefault();
     filtrar();
 }
 
@@ -150,7 +149,7 @@ function agregarClick(){
 
     Lista_palabras.forEach((palabra) => {
         palabra.addEventListener('click', event => {
-            event.preventDefault();
+            // event.preventDefault();
             palabra.setAttribute('tabindex', 0);
             palabra.focus();
 
@@ -167,7 +166,7 @@ function agregarClick(){
 }
 
 function handleTouchStart(event){
-    event.preventDefault();
+    // event.preventDefault();
     this.classList.add('activo');
 }
 
