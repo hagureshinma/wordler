@@ -22,6 +22,15 @@ a{
     color: var(--w-blue);
 }
 
+button{
+    background-color: var(--w-green);
+    border: none;
+}
+
+button:hover, button:focus-visible{
+   outline: 2px solid var(--w-green);
+}
+
 /* header h1{
     color: var(--w-white);
 } */
