@@ -31,6 +31,11 @@ button:hover, button:focus-visible{
    outline: 2px solid var(--w-green);
 }
 
+button:disabled{
+    background-color: gray;
+    color: lightgray;
+}
+
 /* header h1{
     color: var(--w-white);
 } */

@@ -1,6 +1,7 @@
 const inputs = document.querySelectorAll(".letra");
 const candados = document.querySelectorAll(".candado"); 
-
+const botonPpal = document.querySelector(".boton-buscar");
+const deviceIsTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (navigator.msMaxtouchPoints > 0);
 // inputs[0].focus();
 
 window.onload = function() 
@@ -32,6 +33,10 @@ window.onload = function()
     });
 
 }
+
+if(deviceIsTouch){
+    botonPpal.disabled = true;
+};
 
 inputs.forEach((input) =>{
     input.addEventListener('input', event =>{

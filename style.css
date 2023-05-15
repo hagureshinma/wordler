@@ -60,6 +60,10 @@ audio{
     margin-block: 0.2rem;
 }
 
+.touch-notice{
+    display: none;
+}
+
 .palabra{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -145,4 +149,15 @@ audio{
     max-inline-size: 30ch;
     margin-block-start: 20vh;
     pointer-events: none;
+}
+
+@media (hover: none){
+    .touch-notice{
+        display: block;
+    }
+    .emote-centrado{
+        display: block;
+        margin-inline: auto;
+        text-align: center;
+    }
 }
